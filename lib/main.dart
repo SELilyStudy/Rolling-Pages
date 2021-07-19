@@ -63,11 +63,15 @@ class _MyPageViewState extends State<MyPageView> {
   }
 
   Widget _buildHorizontalView(BuildContext context, int horizontalIndex) {
+    final imageUrl =
+        'https://source.unsplash.com/1600x900/?nature,water?_=$horizontalIndex';
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Card(
-        child: Center(
-          child: ElevatedButton(
+        child: Column(children: [
+          Image.network(imageUrl),
+          ElevatedButton(
             onPressed: () {
               _incrementCounter();
               _pageController.animateToPage(
@@ -78,7 +82,7 @@ class _MyPageViewState extends State<MyPageView> {
             },
             child: Text(horizontalIndex.toString()),
           ),
-        ),
+        ]),
       ),
     );
   }
